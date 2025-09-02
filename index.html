@@ -80,7 +80,7 @@
     <div class="band-grid">
       <div class="band-member">
         <img src="images/Andrew.webp" alt="Andrew Luv" />
-        <h3>Andrew Luv</h3><p>Singer</p>
+        <h3>Andrew Luv</h3><p>Lead Vocals</p>
       </div>
       <div class="band-member">
         <img src="images/Vince.webp" alt="Vince Belvin" />
@@ -104,30 +104,30 @@
 <section id="photos">
   <h2>Photos</h2>
   <div class="gallery-grid">
-    <img src="gallery/pic1.jpg" alt="Picture 1" class="gallery-img">
-    <img src="gallery/pic2.jpg" alt="Picture 2" class="gallery-img">
-    <img src="gallery/pic3.jpg" alt="Picture 3" class="gallery-img">
-    <img src="gallery/pic4.jpg" alt="Picture 4" class="gallery-img">
-    <img src="gallery/pic5.jpg" alt="Picture 5" class="gallery-img">
-    <img src="gallery/pic6.jpg" alt="Picture 6" class="gallery-img">
-    <img src="gallery/pic7.jpg" alt="Picture 7" class="gallery-img">
-    <img src="gallery/pic8.jpg" alt="Picture 8" class="gallery-img">
-    <img src="gallery/pic9.jpg" alt="Picture 9" class="gallery-img">
-    <img src="gallery/pic10.jpg" alt="Picture 10" class="gallery-img">
-    <img src="gallery/pic11.jpg" alt="Picture 11" class="gallery-img">
-    <img src="gallery/pic12.jpg" alt="Picture 12" class="gallery-img">
-    <img src="gallery/pic13.jpg" alt="Picture 13" class="gallery-img">
-    <img src="gallery/pic14.jpg" alt="Picture 14" class="gallery-img">
-    <img src="gallery/pic15.jpg" alt="Picture 15" class="gallery-img">
-    <img src="gallery/pic16.jpg" alt="Picture 16" class="gallery-img">
-    <img src="gallery/pic17.jpg" alt="Picture 17" class="gallery-img">
-    <img src="gallery/pic18.jpg" alt="Picture 18" class="gallery-img">
-    <img src="gallery/pic19.jpg" alt="Picture 19" class="gallery-img">
-    <img src="gallery/pic20.jpg" alt="Picture 20" class="gallery-img">
-    <img src="gallery/pic21.jpg" alt="Picture 21" class="gallery-img">
-    <img src="gallery/pic22.jpg" alt="Picture 22" class="gallery-img">
-    <img src="gallery/pic23.jpg" alt="Picture 23" class="gallery-img">
-    <img src="gallery/pic24.jpg" alt="Picture 24" class="gallery-img">
+    <img src="gallery/full01.jpg" data-full="gallery/full01.jpg" alt="Picture 01" class="gallery-img">
+    <img src="gallery/full02.jpg" data-full="gallery/full02.jpg" alt="Picture 02" class="gallery-img">
+    <img src="gallery/full03.jpg" data-full="gallery/full03.jpg" alt="Picture 03" class="gallery-img">
+    <img src="gallery/full04.jpg" data-full="gallery/full04.jpg" alt="Picture 04" class="gallery-img">
+    <img src="gallery/full05.jpg" data-full="gallery/full05.jpg" alt="Picture 05" class="gallery-img">
+    <img src="gallery/full06.jpg" data-full="gallery/full06.jpg" alt="Picture 06" class="gallery-img">
+    <img src="gallery/full07.jpg" data-full="gallery/full07.jpg" alt="Picture 07" class="gallery-img">
+    <img src="gallery/full08.jpg" data-full="gallery/full08.jpg" alt="Picture 08" class="gallery-img">
+    <img src="gallery/full09.jpg" data-full="gallery/full09.jpg" alt="Picture 09" class="gallery-img">
+    <img src="gallery/full10.jpg" data-full="gallery/full10.jpg" alt="Picture 10" class="gallery-img">
+    <img src="gallery/full11.jpg" data-full="gallery/full11.jpg" alt="Picture 11" class="gallery-img">
+    <img src="gallery/full12.jpg" data-full="gallery/full12.jpg" alt="Picture 12" class="gallery-img">
+    <img src="gallery/full13.jpg" data-full="gallery/full13.jpg" alt="Picture 13" class="gallery-img">
+    <img src="gallery/full14.jpg" data-full="gallery/full14.jpg" alt="Picture 14" class="gallery-img">
+    <img src="gallery/full15.jpg" data-full="gallery/full15.jpg" alt="Picture 15" class="gallery-img">
+    <img src="gallery/full16.jpg" data-full="gallery/full16.jpg" alt="Picture 16" class="gallery-img">
+    <img src="gallery/full17.jpg" data-full="gallery/full17.jpg" alt="Picture 17" class="gallery-img">
+    <img src="gallery/full18.jpg" data-full="gallery/full18.jpg" alt="Picture 18" class="gallery-img">
+    <img src="gallery/full19.jpg" data-full="gallery/full19.jpg" alt="Picture 19" class="gallery-img">
+    <img src="gallery/full20.jpg" data-full="gallery/full20.jpg" alt="Picture 20" class="gallery-img">
+    <img src="gallery/full21.jpg" data-full="gallery/full21.jpg" alt="Picture 21" class="gallery-img">
+    <img src="gallery/full22.jpg" data-full="gallery/full22.jpg" alt="Picture 22" class="gallery-img">
+    <img src="gallery/full23.jpg" data-full="gallery/full23.jpg" alt="Picture 23" class="gallery-img">
+    <img src="gallery/full24.jpg" data-full="gallery/full24.jpg" alt="Picture 24" class="gallery-img">
     <!-- Add more as needed -->
   </div>
 </section>
@@ -199,7 +199,31 @@
   <!-- Add more as needed -->  
 </div>
 
+<!-- Lightbox container -->
+<div id="lightbox">
+  <img src="" alt="Full Image">
+</div>
+
+<script>
+  const galleryImages = document.querySelectorAll('.gallery-img');
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = lightbox.querySelector('img');
+
+  galleryImages.forEach(img => {
+    img.addEventListener('click', () => {
+      const fullSrc = img.getAttribute('data-full') || img.src;
+      lightboxImg.src = fullSrc;
+      lightbox.style.display = 'flex';
+    });
+  });
+
+  lightbox.addEventListener('click', () => {
+    lightbox.style.display = 'none';
+    lightboxImg.src = '';
+  });
+</script>
+
+
   <script src="dates-loader.js"></script>
 </body>
 </html>
-
